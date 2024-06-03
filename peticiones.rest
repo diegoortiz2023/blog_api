@@ -1,0 +1,77 @@
+@PORT = 3000
+@HOST = http://localhost:{{PORT}}
+
+## CREAR USUARIO
+POST {{HOST}}/api/autores
+Content-Type: application/json
+
+{
+  "nombre": "Autor Ejemplo2",
+  "email": "autor2@example.com",
+  "imagen": "http://example.com/image2.jpg"
+}
+
+### OBTENER AUTORES
+GET {{HOST}}/api/autores
+
+
+###OBTENR AUTOR POR ID
+GET {{HOST}}/api/autores/1
+Content-Type: application/json
+
+
+### CREAR POST
+POST {{HOST}}/api/posts
+Content-Type: application/json
+
+{
+  "titulo": "Post Ejemplo",
+  "descripcion": "Descripción del post",
+  "categoria": "Categoría Ejemplo",
+  "autor_id": 1
+}
+###
+###OBTENR POST POR ID
+GET {{HOST}}/api/posts/1
+Content-Type: application/json
+
+
+
+
+PUT {{HOST}}/api/pacientes/13
+Authorization: API-KEY
+Content-Type: application/json
+
+{
+    "nombre": "Luisa",
+    "apellidos": "García",
+    "fecha_nacimiento": "2001-04-23"
+}
+
+###
+DELETE {{HOST}}/api/pacientes/17
+Authorization: API-KEY
+
+### Autenticación   
+### Registro
+POST {{HOST}}/api/usuarios/registro
+Authorization: API-KEY
+Content-Type: application/json
+
+{
+    "username": "ines",
+    "email": "ines@gmail.com",
+    "password": "12345"
+}
+
+### Login
+POST {{HOST}}/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "mario@gmail.com",
+    "password": "12345"
+}
+
+### Perfil
+GET {{HOST}}/api/usuarios/perfil
